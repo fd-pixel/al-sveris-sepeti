@@ -1,0 +1,11 @@
+.card-image {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+}
+img {
+  height: 200px;
+  width: auto;
+}

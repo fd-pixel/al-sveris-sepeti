@@ -1,0 +1,23 @@
+.card {
+  box-sizing: border-box;
+  height: fit-content;
+  padding: 10px;
+  width: 250px;
+  background-color: rgb(148, 151, 230);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  margin: 30px;
+}
+.card:hover {
+  box-shadow: 0 5px 10px rgba(200, 77, 15, 0.3);
+}
+.signs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 10px 0;
+  cursor: pointer;
+}
+/* .down {
+  max-width: 10px;
+} */
