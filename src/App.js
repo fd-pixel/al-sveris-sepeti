@@ -1,6 +1,7 @@
 import "./App.css";
 import Card from "./components/card/Card";
 import { useState } from "react";
+import { FaPlusSquare, FaMinusSquare } from "react-icons/fa";
 
 function App() {
   const initialState = [
@@ -15,7 +16,7 @@ function App() {
     },
     {
       id: "recB6qcHPxb62YJ75",
-      title: "google pixel",
+      title: "Google Pixel",
       price: "499.99",
       image:
         "https://dl.airtable.com/.attachments/91c88ae8c1580e2b762ecb3f73ed1eed/a633139a/phone-1_gvesln.png",
@@ -42,6 +43,8 @@ function App() {
     },
   ];
   const [products, setProducts] = useState(initialState);
+  const [basket, setBasket] = useState([]);
+  const [tutar, setTutar] = useState(0);
 
   return (
     <div className="App">
@@ -50,14 +53,76 @@ function App() {
       <div className="products">
         {products.map((product, id) => {
           return (
-            <Card
-              key={id}
-              title={product.title}
-              image={product.image}
-              info={product.info}
-            />
+            <div key={id}>
+              <Card
+                title={product.title}
+                image={product.image}
+                price={product.price}
+              ></Card>
+              <div className="signs">
+                <FaPlusSquare
+                  style={{ fontSize: "20px" }}
+                  onClick={() => {
+                    const array = [...basket];
+                    if (
+                      array.findIndex((ind) => {
+                        return product.id === ind.id;
+                      }) === -1
+                    ) {
+                      array.push(product);
+
+                      setBasket(array);
+                    } else {
+                      array.map((item) => {
+                        if (item.id === product.id) {
+                          return (product.amount += 1);
+                        }
+                        setTutar(product.price * product.amount);
+                        setBasket(array);
+                      });
+                    }
+                    console.log(basket);
+                  }}
+                />
+                <FaMinusSquare style={{ fontSize: "20px" }} />
+              </div>
+            </div>
           );
         })}
+      </div>
+      <div className="basket">
+        <h2> Sepetiniz</h2>
+        <ul className="Sepet">
+          {basket.map((product, index) => {
+            return (
+              <li className="basket-items">
+                {product.title +
+                  "  " +
+                  "----> " +
+                  product.amount +
+                  "  " +
+                  "Adet:" +
+                  "Toplam Tutar" +
+                  (product.amount * product.price).toFixed(2)}
+              </li>
+            );
+          })}
+        </ul>
+
+        <h2>Sepetinizdeki Toplam Tutar</h2>
+        <p>{tutar}</p>
+        {basket.length > 0 ? (
+          <button
+            onClick={() => {
+              setBasket([]);
+              setTutar(0);
+            }}
+          >
+            Sepeti Temizle{" "}
+          </button>
+        ) : (
+          <h2>Sepetinizde Ürün Bulunmamaktadır</h2>
+        )}
       </div>
     </div>
   );
