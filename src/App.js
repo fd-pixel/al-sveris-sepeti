@@ -84,7 +84,17 @@ function App() {
                   }}
                 />
                 {product.amount}
-                <FaMinusSquare style={{ fontSize: "20px" }} />
+                <FaMinusSquare
+                  style={{ fontSize: "20px" }}
+                  onClick={() => {
+                    array.map((item) => {
+                      if (item.id === product.id) {
+                        return (product.amount -= 1);
+                      }
+                      setBasket(array);
+                    });
+                  }}
+                />
               </div>
             </div>
           );
