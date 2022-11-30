@@ -33,4 +33,13 @@
 .basket-items {
   list-style-type: none;
   box-shadow: lightskyblue;
+  margin: 10px;
+}
+.delete-btn {
+  border-radius: 5px;
+  text-align: left;
+  background-color: rgb(148, 151, 230);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  padding: 20px;
 }
