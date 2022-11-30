@@ -142,7 +142,7 @@ function App() {
         </ul>
 
         <h2>Toplam Tutar</h2>
-        <p>{toplamTutar.toFixed(2)}</p>
+        <p className="toplam-tutar">{toplamTutar.toFixed(2)}</p>
         {basket.length > 0 ? (
           <button
             className="delete-btn"

@@ -37,9 +37,20 @@
 }
 .delete-btn {
   border-radius: 5px;
-  text-align: left;
+  text-align: center;
   background-color: rgb(148, 151, 230);
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   padding: 20px;
+}
+.toplam-tutar {
+  border-radius: 5px;
+  text-align: center;
+  background-color: rgb(148, 151, 230);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  padding: 10px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  width: 50%;
+  margin: 20px auto;
 }
