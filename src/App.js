@@ -80,9 +80,10 @@ function App() {
                       );
                     } else {
                       array.map((item) => {
-                        if (item.id === product.id) {
+                        if (product.id === item.id) {
                           return (product.amount += 1);
                         }
+
                         setBasket(array);
                         setToplamTutar(
                           array.reduce(
@@ -142,7 +143,7 @@ function App() {
         </ul>
 
         <h2>Toplam Tutar</h2>
-        <p className="toplam-tutar">{toplamTutar.toFixed(2)}</p>
+        <p className="toplam-tutar">$ {toplamTutar.toFixed(2)}</p>
         {basket.length > 0 ? (
           <button
             className="delete-btn"
